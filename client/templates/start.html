@@ -1,0 +1,20 @@
+<template name="start">
+	{{#if currentUser}}
+		{{> loginButtons}}
+	{{/if}}
+
+	<div class="photostream">
+		<img src="/images/example.png" alt="">
+	</div>
+	<div class="container">
+		{{#unless currentUser}}
+			<div id="login" class="login">
+				{{> loginButtons}}
+			</div>
+		{{/unless}}
+
+		{{#if currentUser}}
+			 {{> teamsInlog }}
+		{{/if}}
+	</div>
+</template>
