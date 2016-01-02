@@ -21,6 +21,7 @@ iron:router
 accounts-ui-unstyled
 accounts-password
 accounts-facebook
-materialize:materialize
-pfafman:photo-up
 insecure
+cfs:standard-packages
+cfs:gridfs
+sacha:spin
