@@ -1,6 +1,9 @@
 Router.configure({
   	layoutTemplate: 'layout',
-  	loadingTemplate: 'loading'
+  	loadingTemplate: 'loading',
+  	waitOn: function () {
+	 return Meteor.subscribe('teams')
+	},
 });
 
 Router.route('/teamAanmelden',{
@@ -18,3 +21,19 @@ Router.route('/teamAanmelden',{
 Router.route('/', {name: 'start'});
 //Router.route('/team', {name: 'teamAanmelden'});
 Router.route('/join', {name: 'teamAansluiten'});
+
+Router.route('/target', {name: 'targetPagina'});
+
+Router.route('/challenges', {name: 'challenges'});
+
+Router.route('/gevonden', {name: 'gevonden'});
+
+Router.route('/joinfriends', {
+    name: 'teamToevoegen',
+    waitOn: function() {
+        return Meteor.subscribe('userList');
+    },
+    data: function() {
+        return Meteor.users.find({});       
+    }
+ });

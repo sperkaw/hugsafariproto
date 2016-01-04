@@ -1,0 +1,9 @@
+<template name="teamToevoegen">
+	<h1>{{teamName}}</h1>
+	
+	{{#each users}}
+		<p class="button" value={{_id}}>{{ username}}</p>
+	{{/each}}
+	
+  <input type="checkbox" value="TeamOpslaan" class="saveTeam">Compleet
+</template>
