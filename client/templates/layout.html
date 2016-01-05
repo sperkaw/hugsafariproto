@@ -1,6 +1,9 @@
 <template name="layout">
 	<header>
-		<a href="{{pathFor 'start'}}">Home</a>
+		<a href="{{pathFor 'home'}}">Home</a>
+		{{#if currentUser}}
+			{{> loginButtons}}
+		{{/if}}
 	</header>
 	<div class="container">
 		<div id="a" class="bla">

@@ -18,7 +18,7 @@ Router.route('/teamAanmelden',{
  }
 });
 
-Router.route('/', {name: 'start'});
+Router.route('/', {name: 'home'});
 //Router.route('/team', {name: 'teamAanmelden'});
 Router.route('/join', {name: 'teamAansluiten'});
 
@@ -27,6 +27,9 @@ Router.route('/target', {name: 'targetPagina'});
 Router.route('/challenges', {name: 'challenges'});
 
 Router.route('/gevonden', {name: 'gevonden'});
+
+Router.route('/admin', {name: 'admin'});
+
 
 Router.route('/joinfriends', {
     name: 'teamToevoegen',

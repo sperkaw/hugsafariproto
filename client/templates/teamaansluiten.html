@@ -1,3 +1,7 @@
 <template name="teamAansluiten">
-	
+	{{#each teams}}
+		<div class="button" value={{_id}}>
+			{{teamName}}
+		</div>
+	{{/each}}
 </template>

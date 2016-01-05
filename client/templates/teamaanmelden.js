@@ -1,8 +1,8 @@
 Template.teamAanmelden.helpers({
   images: function () {
     if (!$.isEmptyObject(Meteor.user().profile)) {
-      return Meteor.user().profile.image
-    }; 
+      return Images.findOne(Meteor.user().profile.image) //Meteor.user().profile.image
+    };
     //Images.find(); // Where Images is an FS.Collection instance
   },
   teamName: function () {
@@ -18,12 +18,12 @@ Template.teamAanmelden.events({
       FS.Utility.eachFile(event, function(file) {
         Images.insert(file, function (err, fileObj) {
           if (err){
-             // handle error
+             alert("failed");
           } else {
              // handle success depending what you need to do
             var userId = Meteor.userId();
             var imagesURL = {
-              "profile.image": "/cfs/files/images/" + fileObj._id
+              "profile.image":  fileObj._id//"/cfs/files/images/" +
             };
             Meteor.users.update(userId, {$set: imagesURL});
           }
@@ -41,7 +41,7 @@ Template.teamAanmelden.events({
          
      
    },
-  'change .saveTeam': function(event, template) {
+  'click .saveTeam': function(event, template) {
     console.log("save");
       
             
@@ -63,7 +63,9 @@ Template.teamAanmelden.events({
       createdBy: Meteor.userId(),
       createdAt: new Date(),
       teamName: teamName ,
-      imagesURL: imagesURL
+      imagesURL: imagesURL,
+      targetteamID:""
+
     }, function (err, fileObj) {
       var userId = Meteor.userId();
       var teamID = {"profile.teamid":fileObj };

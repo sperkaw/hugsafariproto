@@ -1,7 +1,5 @@
-<template name="start">
-	{{#if currentUser}}
-		{{> loginButtons}}
-	{{/if}}
+<template name="home">
+	
 
 	<div class="photostream">
 		<img src="/images/example.png" alt="">
@@ -14,7 +12,9 @@
 		{{/unless}}
 
 		{{#if currentUser}}
-			 {{> teamsInlog }}
+			{{#if userinteam}}
+				{{> teamsInlog }}
+			{{/if}}
 		{{/if}}
 	</div>
 </template>
